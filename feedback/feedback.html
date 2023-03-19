@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact us</title>
+	<link rel="stylesheet" type="text/css" href="feedback.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+
+</head>
+<body>
+	<div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<form onsubmit="sendEmail(); reset(); return false;">
+					<h2>Contact Us</h2>
+					<input type="text" class="name" id="name" placeholder="Your Name" required>
+					<input type="email" class="email" id="email" placeholder="Your Email" required>
+					<input type="text" class="phone" id="phone" placeholder="Phone" required>
+					<textarea placeholder="Message" id="message" class="message"></textarea>
+					<button type="submit" class="btn">Send</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script>
+		function sendEmail(){
+			Email.send({
+				// SecureToken : "ca2cf828-267a-447c-86b1-5c248bc5791c",
+				Host : "smtp.gmail.com",
+   				Username : "vitthalpandit500@gmail.com",
+   				Password : "hpoewaszobuqqphn",
+			    To : 'vitthalpandit500@gmail.com',
+			    From : document.getElementbyId("email").value,
+			    Subject : "Contact Form Message",
+			    Body : "Name: " + document.getElementbyId("name").value
+			    + "<br> Email: " + document.getElementbyId("email").value
+			    + "<br> Phone No.: " + document.getElementbyId("phone").value
+			    + "<br> Message: " + document.getElementbyId("message").value
+			}).then(
+			  message => alert(message)
+			);
+		}
+	</script>
+</body>
+</html>
+
+<!-- 
+SMTP Username:-vitthalpandit500@gmail.com
+SMTP password:-CC2E046F95E87565ABC5FD0C99AF7FC6937E www.smtpjs.com
+SMTP password:-xsmtpsib-94ff957c2ebf6810eb66b9c6638261029e22ab1bedbd98ee6e5da376219306bb-ZRfHhywAqULc1tPJ sendinblue.com
+master pass :- zLfn7jO3PYpRBS1r sendinblue.com
+-->
